@@ -1,10 +1,13 @@
-FROM golang:1.15rc1-alpine3.12
+FROM golang:1.12
 
-WORKDIR /go/src/blog
+ENV GO111MODULE=on
+ENV PORT=9000
+WORKDIR /app/blog
+COPY go.mod .
+COPY go.sum .
+RUN go mod download
+
 COPY . .
 
-EXPOSE 80
-
-RUN go install -v ./...
-
+RUN go build
 CMD ["blog"]
