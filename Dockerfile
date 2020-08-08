@@ -1,13 +1,14 @@
-FROM golang:1.12
+FROM golang:latest
 
-ENV GO111MODULE=on
-ENV PORT=9000
-WORKDIR /app/blog
-COPY go.mod .
-COPY go.sum .
-RUN go mod download
+# Set the Current Working Directory inside the container
+WORKDIR /app
 
+# Copy the source from the current directory to the Working Directory inside the container
 COPY . .
 
 RUN go build
-CMD ["blog"]
+
+EXPOSE 80
+
+# Command to run the executable
+CMD ["./go-blog"]

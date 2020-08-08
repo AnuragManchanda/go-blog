@@ -1,0 +1,25 @@
+version: '3.7'
+
+services:
+  mysqldb:
+    image: mysql:8.0.17
+#    ports:
+#      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=""
+      - MYSQL_USER=dockeruser
+      - MYSQL_PASSWORD=dockeruser
+      - MYSQL_DATABASE=blog
+    networks:
+      - carparknet
+  app:
+    build: .
+    ports:
+      - "80:80"
+    depends_on:
+      - mysqldb
+    networks:
+      - carparknet
+
+networks:
+  carparknet:

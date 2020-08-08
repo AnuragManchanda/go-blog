@@ -2,16 +2,23 @@ package main
 
 import (
 	"fmt"
-	_ "github.com/go-sql-driver/mysql"
+	"github.com/AnuragManchanda/go-blog/app/controllers/articles"
+	dbClient "github.com/AnuragManchanda/go-blog/db"
+	"github.com/gorilla/mux"
+	log "log"
 	"net/http"
 )
 
-func handlerFunc(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprint(w, "<h1>You can Do it!</h1>")
+func main() {
+	dbClient.Init()
+	initializeRoutes()
 }
 
-func main() {
+func initializeRoutes() {
 	fmt.Printf("Server Listening at port 80")
-	http.HandleFunc("/", handlerFunc)
-	http.ListenAndServe(":80", nil)
+	router := mux.NewRouter()
+	router.HandleFunc("/articles/{id}", articles.Show).Methods("GET")
+	router.HandleFunc("/articles}", articles.Index).Methods("GET")
+	router.HandleFunc("/articles}", articles.Create).Methods("POST")
+	log.Fatal(http.ListenAndServe(":80", router))
 }
