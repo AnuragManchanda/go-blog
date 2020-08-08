@@ -21,10 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="659c2c7d-7957-42f7-acad-86d0528c3694" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/articles/articles.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/articles/articles.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/article/article.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/article/article.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/mysql_client.go" beforeDir="false" afterPath="$PROJECT_DIR$/db/mysql_client.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,10 +165,10 @@
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state width="600" height="428" key="javadoc.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1596878703699" />
-    <state x="505" y="250" width="670" height="676" key="search.everywhere.popup" timestamp="1596893642227">
+    <state x="505" y="250" width="670" height="676" key="search.everywhere.popup" timestamp="1596899407529">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state x="505" y="250" width="670" height="676" key="search.everywhere.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1596893642227" />
+    <state x="505" y="250" width="670" height="676" key="search.everywhere.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1596899407529" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
