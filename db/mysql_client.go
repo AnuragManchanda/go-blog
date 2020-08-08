@@ -9,8 +9,8 @@ import (
 var DB *sql.DB
 
 func Init() {
-	//db, err := sql.Open("mysql", "dockeruser:dockeruser@tcp(mysqldb:3308)/blog?parseTime=true")
 	db, err := sql.Open("mysql", "dockeruser:dockeruser@tcp(mysqldb:33060)/blog?parseTime=true")
+	//db, err := sql.Open("mysql", "dockeruser:dockeruser@tcp(localhost:33060)/blog?parseTime=true")
 	if err != nil {
 		fmt.Println(err.Error())
 	} else {
