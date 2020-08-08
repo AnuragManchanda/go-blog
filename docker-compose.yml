@@ -3,23 +3,26 @@ version: '3.7'
 services:
   mysqldb:
     image: mysql:8.0.17
-#    ports:
-#      - "3306:3306"
+    ports:
+      - "10000:3306"
+    expose:
+      - "10000"
     environment:
       - MYSQL_ROOT_PASSWORD=""
       - MYSQL_USER=dockeruser
       - MYSQL_PASSWORD=dockeruser
       - MYSQL_DATABASE=blog
-    networks:
-      - carparknet
+    volumes:
+      - mysql-datavolume:/var/lib/mysql
+      - ./docker/development/docker-entrypoint-initdb.d/:/docker-entrypoint-initdb.d/
+
   app:
     build: .
     ports:
       - "80:80"
     depends_on:
       - mysqldb
-    networks:
-      - carparknet
 
-networks:
-  carparknet:
+volumes:
+  mysql-datavolume:
+  bundle-datavolume:

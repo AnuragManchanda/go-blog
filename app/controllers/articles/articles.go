@@ -16,11 +16,14 @@ func Show(w http.ResponseWriter, r *http.Request) {
 }
 
 func Create(w http.ResponseWriter, r *http.Request) {
-	fmt.Print("hello2")
-	article.Create()
+	//id := strings.Split(r.RequestURI, "/")[2]
+	//id_n, _ := strconv.Atoi(id)
+	//response := article.Find(id_n)
+	//fmt.Fprintf(w, response)
 }
 
 func Index(w http.ResponseWriter, r *http.Request) {
-	fmt.Print("hello3")
-	article.Create()
+	//	response := article.All()
+	//	fmt.Fprintf(w, response)
+	//}
 }

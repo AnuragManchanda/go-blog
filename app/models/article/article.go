@@ -6,20 +6,6 @@ import (
 	dbClient "github.com/AnuragManchanda/go-blog/db"
 )
 
-//type ArticleRow struct {
-//	Id int
-//	Title  string
-//	Author  string
-//	Content  string
-//}
-//
-//type Article struct {
-//	Id int 			`json:"id"`
-//	Title  string   `json:"title`
-//	Author  string  `json:"author`
-//	Content  string `json:"content`
-//}
-
 type Article struct {
 	Id int
 	Title  string
@@ -33,7 +19,7 @@ type Articles struct {
 
 func Find(id int) string {
 	// Execute the query
-	results, err := dbClient.Client().Query("SELECT id, title, author, content FROM ARTICLES")
+	results, err := dbClient.Client().Query("SELECT id, title, author, content FROM articles where id = ?",id)
 	if err != nil {
 		panic(err.Error()) // proper error handling instead of panic in your app
 	}
@@ -52,17 +38,21 @@ func Find(id int) string {
 		articles = append(articles, article)
 		//articles := []Article{Article{1,"24","as","sd"}, Article{2,"234","as","sd"}}
 	}
-	articlesSlice, err := json.Marshal(Articles{articles})
-	if err != nil {
-		fmt.Println("Error...")
+	articleData := "Not Found"
+	if (len(articles) > 0) {
+		marchalArticleData, err := json.Marshal(Articles{articles})
+		if err != nil {
+			fmt.Println("Error...")
+		}
+		articleData = string(marchalArticleData)
+		fmt.Println(articleData)
 	}
-	fmt.Println(string(articlesSlice))
-	return string(articlesSlice)
+	return articleData
 }
 
 func All() []byte {
 	// Execute the query
-	results, err := dbClient.Client().Query("SELECT id, title, author, content FROM ARTICLES")
+	results, err := dbClient.Client().Query("SELECT id, title, author, content FROM articles")
 	if err != nil {
 		panic(err.Error()) // proper error handling instead of panic in your app
 	}
@@ -88,7 +78,6 @@ func All() []byte {
 	fmt.Println(string(articlesSlice))
 	return articlesSlice
 }
-
 
 func Create() bool {
 	return true
