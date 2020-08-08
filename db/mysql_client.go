@@ -19,7 +19,8 @@ func Init() {
 			fmt.Println("Database connected successfully")
 		}
 		result, err := db.Exec("CREATE TABLE IF NOT EXISTS " +
-			"articles (id VARCHAR(16) PRIMARY KEY, " +
+			"articles" +
+			"(id int PRIMARY KEY AUTO_INCREMENT, " +
 			"title VARCHAR(16) NOT NULL, " +
 			"author VARCHAR(16) NOT NULL, " +
 			"content TEXT);")

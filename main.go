@@ -18,7 +18,7 @@ func initializeRoutes() {
 	fmt.Printf("Server Listening at port 80")
 	router := mux.NewRouter()
 	router.HandleFunc("/articles/{id}", articles.Show).Methods("GET")
-	router.HandleFunc("/articles}", articles.Index).Methods("GET")
-	router.HandleFunc("/articles}", articles.Create).Methods("POST")
+	router.HandleFunc("/articles", articles.Index).Methods("GET")
+	router.HandleFunc("/articles", articles.Create).Methods("POST")
 	log.Fatal(http.ListenAndServe(":80", router))
 }

@@ -50,7 +50,7 @@ func Find(id int) string {
 	return articleData
 }
 
-func All() []byte {
+func All() string {
 	// Execute the query
 	results, err := dbClient.Client().Query("SELECT id, title, author, content FROM articles")
 	if err != nil {
@@ -76,9 +76,13 @@ func All() []byte {
 		fmt.Println("Error...")
 	}
 	fmt.Println(string(articlesSlice))
-	return articlesSlice
+	return string(articlesSlice)
 }
 
-func Create() bool {
+func Create(title string, author string, content string) bool {
+	row, err := dbClient.Client().Query("Insert into articles(title, author, content) values(?, ?, ?)", title, author, content)
+	fmt.Println("here")
+	fmt.Println(err)
+	fmt.Println(row)
 	return true
 }
